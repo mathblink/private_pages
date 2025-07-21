@@ -6,6 +6,28 @@
 <meta http-equiv="Content-Style-Type" content="text/css">
 <link rel="stylesheet" href="styles.css">
 <title>index</title>
+
+<script>
+    // ページの内容を隠す（デフォルト非表示）
+    document.write('<style id="hideContent">body{display:none !important;}</style>');
+
+    // 認証処理
+    window.onload = function() {
+      var password = prompt("パスワードを入力してください:");
+      var correct = "1634"; // ここを好きなパスワードに変える
+
+      if(password === correct) {
+        // パスワード正解→ページ内容を表示
+        var styleTag = document.getElementById("hideContent");
+        if(styleTag) styleTag.parentNode.removeChild(styleTag);
+      } else {
+        // パスワード不正解→何も表示しない
+        document.body.innerHTML = "";
+        alert("パスワードが違います！");
+      }
+    }
+  </script>
+
 </head>
 <body background="\photos\nemophila.jpg">
 <div class="container">
